@@ -27,6 +27,10 @@ ActiveRecord::Schema.define(:version => 20130615181420) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "name"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
     t.text     "address"
     t.string   "work_info"
   end

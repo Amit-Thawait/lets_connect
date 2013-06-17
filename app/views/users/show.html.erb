@@ -4,7 +4,10 @@
   <b>Name:</b>
   <%= @user.name %>
 </p>
-
+<p>
+  <b>Photo:</b>
+  <%= image_tag @user.photo.url(:small) %>
+</p>
 <p>
   <b>Email:</b>
   <%= @user.email %>

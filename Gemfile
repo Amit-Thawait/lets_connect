@@ -31,6 +31,8 @@ end
 
 gem 'factory_girl', group: :test
 
+gem 'paperclip'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
