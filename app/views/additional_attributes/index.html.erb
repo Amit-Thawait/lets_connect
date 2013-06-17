@@ -1,0 +1,27 @@
+<h1>Listing additional_attributes</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Attr class</th>
+    <th>Type</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @additional_attributes.each do |additional_attribute| %>
+  <tr>
+    <td><%= additional_attribute.name %></td>
+    <td><%= additional_attribute.attr_class %></td>
+    <td><%= additional_attribute.type %></td>
+    <td><%= link_to 'Show', additional_attribute %></td>
+    <td><%= link_to 'Edit', edit_additional_attribute_path(additional_attribute) %></td>
+    <td><%= link_to 'Destroy', additional_attribute, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Additional attribute', new_additional_attribute_path %>

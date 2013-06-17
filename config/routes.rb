@@ -1,4 +1,7 @@
 LetsConnect::Application.routes.draw do
+  resources :additional_attributes
+
+
   devise_for :users
 
   resources :users

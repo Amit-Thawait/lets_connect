@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @additional_attribute.name %>
+</p>
+
+<p>
+  <b>Attr class:</b>
+  <%= @additional_attribute.attr_class %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @additional_attribute.type %>
+</p>
+
+
+<%= link_to 'Edit', edit_additional_attribute_path(@additional_attribute) %> |
+<%= link_to 'Back', additional_attributes_path %>

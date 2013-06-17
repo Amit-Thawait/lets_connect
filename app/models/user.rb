@@ -16,5 +16,6 @@ class User < ActiveRecord::Base
                                 :large => "400x400>"
                                }
 
+  has_many :additional_attributes
   # attr_accessible :title, :body
 end
