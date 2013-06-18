@@ -16,12 +16,7 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :add %><br />    
-    Attribute <%= radio_button_tag :attr_purpose, 'attribute', true %>
-    Relationship <%= radio_button_tag :attr_purpose, 'relationship' %>
-  </div>
-  <div class="field">
-    <%= f.label :attribute_for %><br />
+    <%= f.label :for_entity %><br />
     <%= f.select :attr_class, @models %>
   </div>
   <div class="field">
@@ -47,5 +42,5 @@
     }else{
       $('#attribute_value').hide();
     }
-  })  
+  });
 </script>
