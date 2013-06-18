@@ -25,6 +25,8 @@ class AdditionalAttributesController < ApplicationController
   # GET /additional_attributes/new.json
   def new
     @additional_attribute = AdditionalAttribute.new
+    @models = @additional_attribute.get_model_names
+    @attr_type = AdditionalAttribute::SINGLE_VALUED_ATTRIBUTE + AdditionalAttribute::MULTI_VALUED_ATTRIBUTE
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,6 +42,7 @@ class AdditionalAttributesController < ApplicationController
   # POST /additional_attributes
   # POST /additional_attributes.json
   def create
+    params[:additional_attribute][:value] = params[:additional_attribute][:value].split('#')
     @additional_attribute = AdditionalAttribute.new(params[:additional_attribute])
 
     respond_to do |format|

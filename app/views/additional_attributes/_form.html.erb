@@ -16,14 +16,36 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :attr_class %><br />
-    <%= f.text_field :attr_class %>
+    <%= f.label :add %><br />    
+    Attribute <%= radio_button_tag :attr_purpose, 'attribute', true %>
+    Relationship <%= radio_button_tag :attr_purpose, 'relationship' %>
+  </div>
+  <div class="field">
+    <%= f.label :attribute_for %><br />
+    <%= f.select :attr_class, @models %>
   </div>
   <div class="field">
     <%= f.label :type %><br />
-    <%= f.text_field :type %>
+    <%= f.select :attr_type, @attr_type %>
+  </div>
+  <div id="attribute_value" class="field" style="display:none">
+    <%= f.label :value %> (Enter values separated by #)<br />
+    <%= f.text_field :value %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $('#additional_attribute_attr_type').on('change', function(){
+    type = $('#additional_attribute_attr_type').val();
+    multi_value_attr = "<%= AdditionalAttribute::MULTI_VALUED_ATTRIBUTE.join(',')%>" ;
+    multi_value_attr = multi_value_attr.split(',');
+    if (jQuery.inArray(type, multi_value_attr) != -1){
+      $('#attribute_value').show();
+    }else{
+      $('#attribute_value').hide();
+    }
+  })  
+</script>

@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
                                 :large => "400x400>"
                                }
 
-  has_many :additional_attributes
+  has_many :attribute_values
+
+  has_many :family_members, :class_name => "User"
+  has_many :friends, :class_name => "User"
+  has_many :business_members, :class_name => "User"
   # attr_accessible :title, :body
 end

@@ -12,9 +12,15 @@
 
 <p>
   <b>Type:</b>
-  <%= @additional_attribute.type %>
+  <%= @additional_attribute.attr_type %>
 </p>
 
+<% unless @additional_attribute.value.blank? %>
+<p>
+  <b>Value:</b>
+  <%= @additional_attribute.value %>
+</p>
+<% end %>
 
 <%= link_to 'Edit', edit_additional_attribute_path(@additional_attribute) %> |
 <%= link_to 'Back', additional_attributes_path %>
