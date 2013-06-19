@@ -1,4 +1,7 @@
+require 'getter_setter'
+
 class User < ActiveRecord::Base
+  include GetterSetter
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -21,5 +24,7 @@ class User < ActiveRecord::Base
   has_many :family_members, :class_name => "User"
   has_many :friends, :class_name => "User"
   has_many :business_members, :class_name => "User"
-  # attr_accessible :title, :body
+  
+  #getters_setters_for_new_attrs(self.name, @current_user.try(:id))
+
 end

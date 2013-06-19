@@ -6,7 +6,7 @@ class AdditionalAttribute < ActiveRecord::Base
 
   serialize :value
 
-  has_one :attribute_value
+  has_many :attribute_values
 
   scope :get_additional_attributes, lambda{|attr_class| where(:attr_class => attr_class)}
 

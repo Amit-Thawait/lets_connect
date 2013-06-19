@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20130618070731) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "attributes_values", :force => true do |t|
+  create_table "attribute_values", :force => true do |t|
     t.integer  "additional_attribute_id"
     t.integer  "owner_id"
     t.text     "value"
