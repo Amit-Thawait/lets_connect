@@ -6,6 +6,10 @@ class AdditionalAttribute < ActiveRecord::Base
 
   serialize :value
 
+  has_one :attribute_value
+
+  scope :get_additional_attributes, lambda{|attr_class| where(:attr_class => attr_class)}
+
   def get_model_names  	
   	ActiveRecord::Base.descendants.map(&:name).sort - [self.class.name]
   end

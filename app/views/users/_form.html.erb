@@ -15,22 +15,29 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+  
   <div class="field">
     <%= f.label :photo %><br />
     <%= f.file_field :photo %>
   </div>
+  
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email %>
   </div>
+  
   <div class="field">
     <%= f.label :address %><br />
     <%= f.text_area :address %>
   </div>
+  
   <div class="field">
     <%= f.label :work_info %><br />
     <%= f.text_field :work_info %>
   </div>
+
+  <%= generate_feilds_for_additional_attrs(@additional_attrs) %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

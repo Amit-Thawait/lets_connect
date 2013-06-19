@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
+  before_filter :get_attrs, :only => [:index, :show, :new, :edit, :update]
+
   def index
     @users = User.all
 
@@ -57,6 +59,12 @@ class UsersController < ApplicationController
   # PUT /users/1.json
   def update
     @user = User.find(params[:id])
+    unless @additional_attrs.blank?
+      @additional_attrs.each do |attr|
+        attr_value = params[attr.name.to_sym]
+        AttributeValue.create!(:additional_attribute_id => attr.id, :owner_id => params[:id], :value => attr_value)
+      end
+    end
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
@@ -79,5 +87,10 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url }
       format.json { head :no_content }
     end
+  end
+
+  private 
+  def get_attrs
+    @additional_attrs = AdditionalAttribute.get_additional_attributes('User')    
   end
 end
