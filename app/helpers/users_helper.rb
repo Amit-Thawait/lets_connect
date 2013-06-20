@@ -1,5 +1,9 @@
 module UsersHelper
 
+  def get_attr_value(attr, user)
+    attr.attribute_values.where(:owner_id => user.id).first.value
+  end
+    
   def generate_feilds_for_additional_attrs(additional_attrs,f)
   	html_str = ''
   	additional_attrs.each do |attr|
@@ -16,7 +20,7 @@ module UsersHelper
   def get_input_type_for_attr(attr,f)
   	case attr.attr_type
   	when 'Integer', 'Float', 'String'
-  	  f.text_field attr.name#, attr.attribute_value.try(:value)
+  	  f.text_field attr.name
   	when 'Select Box'
   	  'select'  	  
   	when 'Checkbox'

@@ -23,6 +23,12 @@
   <%= @user.work_info %>
 </p>
 
+<% @additional_attrs.each do |attr| %>
+  <p>
+    <b><%= attr.name%>:</b>
+    <%= get_attr_value(attr, @user) %>
+  </p>
+<% end %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %> |
